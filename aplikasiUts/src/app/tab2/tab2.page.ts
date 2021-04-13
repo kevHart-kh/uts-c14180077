@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Note } from '../dataModel/note';
+import { GlovarService } from '../service/glovar.service';
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +9,18 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  judul:string
+  isi:string
+  tanggal:Date
 
-  constructor() {}
+  constructor(
+    public globvar:GlovarService,
+    private router: Router
+  ) {}
 
+  save(){
+    var note = new Note(this.judul, this.isi, this.tanggal.toString() , "", "", 0)
+    this.globvar.addNote(note)
+    this.router.navigate(['/tabs/tab1'])
+  }
 }

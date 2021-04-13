@@ -3,15 +3,25 @@
     <ion-title>
       Tab 3
     </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Judul</ion-label>
+        <ion-input [(ngModel)]="detailNote.judul"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Notes</ion-label>
+        <ion-textarea rows="10" cols="20" [(ngModel)]="detailNote.isiNote"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    
+    <ion-button expand="full" (click)="update()">Update</ion-button>
+    <ion-button expand="full" class="danger" (click)="delete()">delete</ion-button>
 </ion-content>
