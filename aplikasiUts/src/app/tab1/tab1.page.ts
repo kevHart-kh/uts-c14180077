@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlovarService } from '../service/glovar.service';
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  listNote
 
-  constructor() {}
+  constructor(public globvar:GlovarService) {
+    this.listNote = globvar.getNote()
+  }
 
 }
